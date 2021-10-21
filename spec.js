@@ -1,8 +1,11 @@
-describe('Protractor google Demo', () => {
-	it('Should navigate to Demo Page', () => {
-		browser.get('http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx');
-		browser.getCurrentUrl().then((url) => {
-			expect(url).toBe('http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx');
+describe('Login Demo',()=> {
+	it('Protractor Login', () => { 
+		browser.waitForAngularEnabled(false); 
+			browser.get('http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx') 
+			.then(() => element(by.id('ctl00_MainContent_username')).sendKeys('Tester'))  // then keyword is used to chain
+			.then(() => element(by.id('ctl00_MainContent_password')).sendKeys('test')) 
+            .then(() => element(by.name('ctl00$MainContent$login_button')).click())
+			browser.getCurrentUrl().then((url) => {
+				expect(url).toBe('http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/default.aspx');})
 		});
 	});
-});
