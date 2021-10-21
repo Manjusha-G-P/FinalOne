@@ -1,4 +1,4 @@
-describe('Login Demo',()=> {
+describe('Login example',()=> {
 	it('Protractor Login', () => { 
 		browser.waitForAngularEnabled(false); 
 			browser.get('http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Login.aspx') 
